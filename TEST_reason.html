@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>ChatGPT 음색 선정</title>
+<style>
+  body {
+    font-family: "Noto Sans KR", sans-serif;
+    background: #f9f9f9;
+    margin: 20px;
+  }
+  h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .content {
+    width: 80%;
+    margin: auto;
+    text-align: left;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+
+  #toggleScriptBtn {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #3a86ff;
+    background-color: white;
+    color: #3a86ff;
+    text-align: center;
+    width: auto;
+    margin-top: 10px;
+    user-select: none;
+  }
+  #toggleScriptBtn:hover {
+    background-color: #3a86ff;
+    color: white;
+  }
+
+  #scriptContent {
+    width: 80%;
+    margin: 10px auto 30px auto;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    font-family: "Noto Sans KR", sans-serif;
+    display: none;
+  }
+
+  .voice-grid {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .voice-card {
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px rgba(0,0,0,0.05);
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    height: 30px;
+  }
+  .voice-number {
+    font-weight: bold;
+    font-size: 16px;
+    width: 30px;
+    flex-shrink: 0;
+    color: #333;
+    text-align: center;
+  }
+  audio.voice {
+    outline: none;
+    width: 550px;
+    height: 30px;
+    flex-shrink: 0;
+  }
+  textarea.reason-input {
+    width: 450px;
+    min-height: 30px;
+    font-size: 13px;
+    padding: 6px 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    resize: vertical;
+    box-sizing: border-box;
+  }
+  .checkbox-container {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    flex-shrink: 0;
+    min-width: 80px;
+  }
+
+  .note {
+    text-align: center;
+    color: #555;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  .submit-area {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .submit-area label {
+    font-weight: 600;
+    margin-right: 10px;
+  }
+  .submit-area input[type="text"] {
+    padding: 6px 10px;
+    font-size: 16px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    width: 180px;
+  }
+  .submit-area button {
+    padding: 8px 18px;
+    font-size: 16px;
+    margin-left: 15px;
+    cursor: pointer;
+    background-color: #3a86ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+  }
+  .submit-area button:hover {
+    background-color: #265ecf;
+  }
+  p.upload-info {
+    color: blue;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  p.upload-info a {
+    color: red;
+    text-decoration: none;
+  }
+  p.upload-info a:hover {
+    text-decoration: underline;
+  }
+
+  audio::-webkit-media-controls-overflow-button {
+    display: none !important;
+  }
+</style>
+</head>
+<body>
+
+<h2>ChatGPT 음색 선정</h2>
+
+<div class="content">
+  <p>
+    다음은 <b>ChatGPT의 음색과 어울릴 만한 목소리</b> 샘플입니다. <br>
+    아래의 28개의 샘플을 들어보신 후, ChatGPT와 가장 잘 어울리는 목소리를 선택해주세요.
+  </p>
+
+  <p>
+    <b>📌 참고사항 </b><br>
+    1. 여러분이 생각하는 ChatGPT의 이미지에 어울리는 목소리를 기준으로 해주세요.<br>
+    2. 편안하고 자연스러운 대화체를 떠올려보시면 도움이 될 수 있습니다.
+  </p>
+
+  <button id="toggleScriptBtn" onclick="toggleScript()">▶ 대본보기</button>
+</div>
+
+<div id="scriptContent">안녕하세요! 오늘 기분이 어떠세요? 무엇을 도와드릴까요?
+음, 생각해보니까 네가 말한 거랑 조금 다르게 접근하는 방법도 있는데, 한번 그 방법도 같이 고민해볼래?
+비가 이미 퍼붓고 있는데 기우제를 지내면 목적이 성립하지 않죠. 마치 밥 다 먹고 나서 '밥 달라' 하는 격입니다.
+정의에 대해서 말하자면 너무 길고 복잡하고 많습니다. 마이클 샌델의 책을 사서 보십시오.
+조금만 더 구체적으로 상황을 설명해 줄 수 있니? 그러면 내가 더 정확한 답변을 줄 수 있어.
+</div>
+
+<div class="voice-grid" id="voiceGrid"></div>
+
+<p class="note">※ 최대 5개까지만 선택할 수 있습니다.</p>
+
+<div class="submit-area">
+  <label for="userName">참여자 이름: </label>
+  <input type="text" id="userName" placeholder="이름 입력" />
+  <button onclick="downloadResults()">제출</button>
+</div>
+
+<p class="upload-info">
+  제출 후 다운로드된 <b>[Chat_GPT]_[이름]_results.csv</b> 파일을 아래의 [업로드하기] 링크로 들어가서 업로드해주세요. (마우스 드래그로도 업로드 가능합니다)<br>
+  <a href="https://drive.google.com/drive/u/0/folders/1c0Vr-Ax-dnAKpMVzVIKnN1GSdw8lLAcw" target="_blank">[업로드하기]</a>
+</p>
+
+<script>
+function toggleScript() {
+  const scriptDiv = document.getElementById('scriptContent');
+  const btn = document.getElementById('toggleScriptBtn');
+  if (scriptDiv.style.display === 'none' || scriptDiv.style.display === '') {
+    scriptDiv.style.display = 'block';
+    btn.textContent = '▼ 대본접기';
+  } else {
+    scriptDiv.style.display = 'none';
+    btn.textContent = '▶ 대본보기';
+  }
+}
+
+const grid = document.getElementById("voiceGrid");
+for (let i = 1; i <= 28; i++) {
+  const numStr = String(i).padStart(2, "0");
+  grid.innerHTML += `
+    <div class="voice-card">
+      <div class="voice-number">${i}</div>
+      <audio class="voice" controls controlsList="nodownload noplaybackrate" src="Chat_GPT_F_${numStr}.mp3"></audio>
+      <textarea class="reason-input" placeholder="선택한 이유를 입력해주세요."></textarea>
+      <div class="checkbox-container">
+        <input type="checkbox" name="voice" value="${i}" onchange="limitSelection(this)"> 선택
+      </div>
+    </div>`;
+}
+
+function limitSelection(checkbox) {
+  const checkedBoxes = document.querySelectorAll('input[name="voice"]:checked');
+  if (checkedBoxes.length > 5) {
+    alert("최대 5개까지만 선택할 수 있습니다.");
+    checkbox.checked = false;
+  }
+}
+
+function downloadResults() {
+  const name = document.getElementById("userName").value.trim();
+  if (!name) {
+    alert("이름을 입력해주세요!");
+    return;
+  }
+
+  const allVoiceCards = document.querySelectorAll('.voice-card');
+  const checkedBoxes = document.querySelectorAll('input[name="voice"]:checked');
+
+  if (checkedBoxes.length === 0) {
+    alert("최소 하나의 음성을 선택해주세요!");
+    return;
+  }
+  if (checkedBoxes.length > 3) {
+    alert("최대 5개까지만 선택할 수 있습니다.");
+    return;
+  }
+
+  let csvContent = "음성번호,선택여부,이유\n";
+
+  allVoiceCards.forEach(card => {
+    const voiceNum = card.querySelector('.voice-number').textContent.trim();
+    const isChecked = card.querySelector('input[name="voice"]').checked ? "O" : "X";
+    const reason = card.querySelector('.reason-input').value.trim().replace(/,/g, "");
+    csvContent += `${voiceNum},${isChecked},${reason}\n`;
+  });
+
+  const encodedUri = encodeURI("data:text/csv;charset=utf-8," + csvContent);
+  const link = document.createElement("a");
+  link.setAttribute("href", encodedUri);
+  link.setAttribute("download", `[Chat_GPT]_${name}_results.csv`);
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
+
+</body>
+</html>
